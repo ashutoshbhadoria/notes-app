@@ -1,11 +1,11 @@
 # Notes App
 
-A simple command line based notes taking app with following features
+A simple command line based notes taking app with following features:
 
 - Add a note.
 - Remove a note.
 - List all notes.
-- Read a notes.
+- Read a note.
 
 Uses JSON file storage for storing notes.
 
