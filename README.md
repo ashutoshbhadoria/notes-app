@@ -10,3 +10,7 @@ A simple command line based notes taking app with following features
 Uses JSON file storage for storing notes.
 
 Uses [chalk](https://www.npmjs.com/package/chalk) for pretty outputs and [yargs](https://www.npmjs.com/package/yargs) for parsing command line arguments.
+
+## Usage
+
+![Terminal Commands](./terminal-capture.PNG)
