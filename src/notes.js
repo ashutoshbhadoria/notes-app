@@ -21,11 +21,43 @@ const addNote = (title, body) => {
   }
 };
 
-const removeNote = title => {};
+// Remove a note and save the notes data.
+const removeNote = title => {
+  const notes = loadNotes();
+  const updatedNotes = notes.filter(
+    note => note.title.toLowerCase() !== title.toLowerCase()
+  );
 
-const listNotes = () => {};
+  if (updatedNotes.length < notes.length) {
+    saveNotes(updatedNotes);
+    console.log(chalk.green.inverse('Note removed successfully!'));
+  } else {
+    console.log(chalk.red.inverse('Note not found!'));
+  }
+};
 
-const readNote = () => {};
+// List all the notes.
+const listNotes = () => {
+  const notes = loadNotes();
+  console.log(chalk.yellow.bold('Your notes:'));
+  notes.forEach((note, index) => {
+    console.log(`${index + 1}. ${note.title}`);
+  });
+};
+
+// Read a note description.
+const readNote = title => {
+  const notes = loadNotes();
+  const targetNote = notes.find(
+    note => note.title.toLowerCase() === title.toLowerCase()
+  );
+  if (targetNote) {
+    console.log(chalk.green(targetNote.title));
+    console.log(chalk.cyan(targetNote.body));
+  } else {
+    console.log(chalk.red.inverse('Note not found!'));
+  }
+};
 
 // Load all the data from the json file as a JavaScript array of objects.
 const loadNotes = () => {
